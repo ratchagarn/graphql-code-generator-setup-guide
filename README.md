@@ -2,9 +2,28 @@
 
 Step by step for setup [GraphQL Code Generator](https://www.graphql-code-generator.com/) for [Apollo Client React](https://www.apollographql.com/docs/react/) with [TypeScript](https://www.typescriptlang.org/) and [VSCode](https://code.visualstudio.com/)
 
+These guide focusing on you don't have GraphQL server on your local environment and need to set authorization for access GraphQL schema on server
+
+### Table of contents
+
+1. [Prepare directories](#1-prepare-directories)
+2. [Install packages](#2-install-packages)
+3. [Create configuration files](#3-create-configuration-files)
+4. [Update package scripts](#4-update-package-scripts)
+5. [Write your Query documents](#5-write-your-query-documents)
+6. [Install VSCode Extension](#6-install-vscode-extension)
+7. [Create apollo.config.js](#7-create-apolloconfigjs)
+8. [Update .gitignore](#8-update-gitignore)
+9. [Example Usages](#9-example-usages)
+
+---
+
 ### 1) Prepare directories
 
-Create directories `./src/graphql/documents` and `./src/graphql/generate`
+Create directories for Query documents and files generate
+
+- `./src/graphql/documents`
+- `./src/graphql/generate`
 
 ---
 
@@ -186,7 +205,7 @@ Add this code for don't ignore `schema.graphql`
 
 ---
 
-### Example Usages
+### 9) Example Usages
 
 ```tsx
 import type { FC } from 'react'
