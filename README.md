@@ -49,11 +49,13 @@ Create these files at your root directory
 
 #### `env.local`
 
-You for setup your `token` if you have authentication on your GraphQL server
+For setup your envoroment variables
 
 ```
 CODEGEN_AUTH_TOKEN=YOUR_AUTH_TOKEN
 ```
+
+Replace `YOUR_AUTH_TOKEN` with your `token` for authentication on your GraphQL server
 
 #### `codegen.json`
 
@@ -79,6 +81,8 @@ Configuration for download GraphQL schema from server (If you don't have GraphQL
   }
 }
 ```
+
+Replace `YOUR_GRAPHQL_SERVER_ENDPOINTS` with your GraphQL server endpoints
 
 #### `codegen.yaml`
 
@@ -191,6 +195,7 @@ If you need `Typename` set `addTypename` to `true`
 Add this ignore to your `.gitignore`
 
 ```
+env.local
 /src/graphql/generate/*
 ```
 
