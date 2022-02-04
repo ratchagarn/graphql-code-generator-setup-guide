@@ -10,7 +10,7 @@ These guide focusing on you don't have GraphQL server on your local environment 
 2. [Install packages](#2-install-packages)
 3. [Create configuration files](#3-create-configuration-files)
 4. [Update package scripts](#4-update-package-scripts)
-5. [Write your Query documents](#5-write-your-query-documents)
+5. [Add your Query documents](#5-add-your-query-documents)
 6. [Install VSCode Extension](#6-install-vscode-extension)
 7. [Create apollo.config.js](#7-create-apolloconfigjs)
 8. [Update .gitignore](#8-update-gitignore)
@@ -124,9 +124,9 @@ Add these scripts at your `package.json` scripts
 
 ---
 
-### 5) Write your Query documents
+### 5) Add your Query documents
 
-Try add your query documents at `./src/graphql/documents/**/*.gql`
+Query documents should be stored at `./src/graphql/documents` at least one file for code generator
 
 Example:
 
@@ -197,16 +197,11 @@ Add this ignore to your `.gitignore`
 ```
 env.local
 /src/graphql/generate/*
-```
-
-If you don't need extra step for setup your deploy pipeline you can push `schema.graphql` to your project repositorie\
-(Don't forgot to add command for generate operations in your deploy pipeline)
-
-Add this code for don't ignore `schema.graphql`
-
-```
 !/src/graphql/generate/schema.graphql
 ```
+
+We need to ignore `.env.local` for personal configuration and `schema.graphql` for developer in the team to make sure we use same GraphQL schema with other team member\
+_**(please don't edit generate files manually, those files will created by code generator after run the command)**_
 
 ---
 
