@@ -4,7 +4,7 @@ Step by step for setup [GraphQL Code Generator](https://www.graphql-code-generat
 
 ### 1) Prepare directories
 
-- Create directories `./src/graphql/documents` and `./src/graphql/generate`
+Create directories `./src/graphql/documents` and `./src/graphql/generate`
 
 ### 2) Install packages
 
