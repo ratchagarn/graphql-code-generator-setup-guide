@@ -26,6 +26,8 @@ Create these files at your root directory
 
 #### `env.local`
 
+You for setup your `token` if you have authentication on your GraphQL server
+
 ```
 CODEGEN_AUTH_TOKEN=YOUR_AUTH_TOKEN
 ```
