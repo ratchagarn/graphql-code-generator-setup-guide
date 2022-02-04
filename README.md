@@ -11,10 +11,9 @@ These guide focusing on you don't have GraphQL server on your local environment 
 3. [Create configuration files](#3-create-configuration-files)
 4. [Update package scripts](#4-update-package-scripts)
 5. [Add your Query documents](#5-add-your-query-documents)
-6. [Install VSCode Extension](#6-install-vscode-extension)
-7. [Create apollo.config.js](#7-create-apolloconfigjs)
-8. [Update .gitignore](#8-update-gitignore)
-9. [Example Usages](#9-example-usages)
+6. [Update .gitignore](#6-update-gitignore)
+7. [Setup GraphQL Extension](#7-setup-graphql-extension)
+8. [Example Usages](#8-example-usages)
 
 ---
 
@@ -52,10 +51,9 @@ Create these files at your root directory
 For setup your envoroment variables
 
 ```
-CODEGEN_AUTH_TOKEN=YOUR_AUTH_TOKEN
+GRAPHQL_SERVER_URL=YOUR_GRAPHQL_SERVER_URL
+GRAPHQL_SERVER_TOKEN=YOUR_GRAPHQL_SERVER_TOKEN
 ```
-
-Replace `YOUR_AUTH_TOKEN` with your `token` for authentication on your GraphQL server
 
 #### `codegen.json`
 
@@ -65,9 +63,9 @@ Configuration for download GraphQL schema from server (If you don't have GraphQL
 {
   "schema": [
     {
-      "YOUR_GRAPHQL_SERVER_ENDPOINTS": {
+      "${GRAPHQL_SERVER_URL}": {
         "headers": {
-          "Authorization": "${CODEGEN_AUTH_TOKEN}"
+          "Authorization": "${GRAPHQL_SERVER_TOKEN}"
         }
       }
     }
@@ -81,8 +79,6 @@ Configuration for download GraphQL schema from server (If you don't have GraphQL
   }
 }
 ```
-
-Replace `YOUR_GRAPHQL_SERVER_ENDPOINTS` with your GraphQL server endpoints
 
 #### `codegen.yaml`
 
@@ -162,35 +158,7 @@ You need to open `codegen.yaml` then just save it without any change to trigger 
 
 ---
 
-### 6) Install `VSCode` Extension
-
-[Apollo GraphQL Extension](https://marketplace.visualstudio.com/items?itemName=apollographql.vscode-apollo)
-
-[YAML Extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) (for `codegen.yaml` code suggestion - *Optionally*)
-
----
-
-### 7) Create `apollo.config.js`
-
-```js
-module.exports = {
-  client: {
-    service: {
-      name: 'your-service-name',
-      localSchemaFile: './src/graphql/generate/schema.graphql',
-    },
-    addTypename: false,
-    includes: ['./src/graphql/documents/**/*.gql'],
-    excludes: ['./src/graphql/generate/**/*.ts', '**/__tests__/**'],
-  },
-}
-```
-
-If you need `Typename` set `addTypename` to `true`
-
----
-
-### 8) Update `.gitignore`
+### 6) Update `.gitignore`
 
 Add this ignore to your `.gitignore`
 
@@ -205,7 +173,23 @@ _**(please don't edit generate files manually, those files will created by code 
 
 ---
 
-### 9) Example Usages
+### 7) Setup GraphQL Extension
+
+- [GraphQL by GraphQL Foundation](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql)
+- [YAML by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+
+For GraphQL extension we need to create configuration file `.graphqlrc.yaml`
+
+```yaml
+schema: 'src/graphql/generate/schema.graphql'
+documents: 'src/graphql/documents/**/*.gql'
+```
+
+For advanced configuration, please see in extension document
+
+---
+
+### 8) Example Usages
 
 ```tsx
 import type { FC } from 'react'
