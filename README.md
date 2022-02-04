@@ -83,16 +83,12 @@ If you need `Typename` you can set both `skipTypeNameForRoot` and `skipTypename`
 
 ### 4) Update package scripts
 
-Add these scripts at your `package.json`
+Add these scripts at your `package.json` scripts
 
 ```json
-{
-  "scripts": {
-    "generate:schema": "DOTENV_CONFIG_PATH=./.env.local graphql-codegen -r dotenv/config --config codegen.json",
-    "generate:operations": "graphql-codegen --config codegen.yaml",
-    "generate:all": "yarn generate:schema && yarn generate:operations --watch=false"
-  }
-}
+"generate:schema": "DOTENV_CONFIG_PATH=./.env.local graphql-codegen -r dotenv/config --config codegen.json",
+"generate:operations": "graphql-codegen --config codegen.yaml",
+"generate:all": "yarn generate:schema && yarn generate:operations --watch=false"
 ```
 
 ### 5) Write your Query documents
