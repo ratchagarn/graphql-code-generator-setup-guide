@@ -132,7 +132,7 @@ Example:
 
 `./src/graphql/documents/users.gql`
 
-```
+```gql
 query users {
   users {
     id
