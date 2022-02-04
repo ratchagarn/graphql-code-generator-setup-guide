@@ -6,6 +6,8 @@ Step by step for setup [GraphQL Code Generator](https://www.graphql-code-generat
 
 Create directories `./src/graphql/documents` and `./src/graphql/generate`
 
+---
+
 ### 2) Install packages
 
 ```
@@ -19,6 +21,8 @@ yarn add \
   @graphql-codegen/typescript-react-apollo \
   dotenv
 ```
+
+---
 
 ### 3) Create configuration files
 
@@ -83,6 +87,8 @@ generates:
 
 If you need `Typename` you can set both `skipTypeNameForRoot` and `skipTypename` to `false`
 
+---
+
 ### 4) Update package scripts
 
 Add these scripts at your `package.json` scripts
@@ -92,6 +98,8 @@ Add these scripts at your `package.json` scripts
 "generate:operations": "graphql-codegen --config codegen.yaml",
 "generate:all": "yarn generate:schema && yarn generate:operations --watch=false"
 ```
+
+---
 
 ### 5) Write your Query documents
 
@@ -129,11 +137,15 @@ yarn generate:operations --watch
 
 You need to open `codegen.yaml` then just save it without any change to trigger update when you update Query documents
 
+---
+
 ### 6) Install `VSCode` Extension
 
 [Apollo GraphQL Extension](https://marketplace.visualstudio.com/items?itemName=apollographql.vscode-apollo)
 
 [YAML Extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) (for `codegen.yaml` code suggestion - *Optionally*)
+
+---
 
 ### 7) Create `apollo.config.js`
 
@@ -153,6 +165,8 @@ module.exports = {
 
 If you need `Typename` set `addTypename` to `true`
 
+---
+
 ### 8) Update `.gitignore`
 
 Add this ignore to your `.gitignore`
@@ -169,6 +183,8 @@ Add this code for don't ignore `schema.graphql`
 ```
 !/src/graphql/generate/schema.graphql
 ```
+
+---
 
 ### Example Usages
 
